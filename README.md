@@ -210,13 +210,13 @@ python src/main.py
 ## تصاویر خروجی
 
 ### توزیع درجه
-![Degree Distribution](benchmarks/degree_distribution.png)
+![Degree Distribution](docs/assets/degree_distribution.png)
 
 ### نمایش نمونه‌ای از شبکه
-![Network Plot](benchmarks/network_plot.png)
+![Network Plot](docs/assets/network_plot.png)
 
 ### تشخیص جوامع
-![Communities](benchmarks/communities.png)
+![Communities](docs/assets/communities.png)
 
 ---
 
