@@ -1,4 +1,5 @@
 import collections
+import csv
 
 class SocialGraph:
     def __init__(self):
@@ -12,4 +13,16 @@ class SocialGraph:
             self.graph[v].append(u)
         self.nodes.add(u)
         self.nodes.add(v)
+
+    def load_from_csv(self, file_path):
+        try:
+            with open(file_path, 'r') as f:
+                reader = csv.reader(f)
+                next(reader)
+                for row in reader:
+                    u, v = int(row[0]), int(row[1])
+                    self.add_edge(u, v)
+            print(f"Successfully loaded {len(self.nodes)} nodes.")
+        except FileNotFoundError:
+            print("Error: CSV file not found!")
 
