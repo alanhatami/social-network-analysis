@@ -1,29 +1,6 @@
 from collections import deque
-
-def bfs_shortest_path(graph_obj, start_node, target_node):
-    if start_node not in graph_obj.graph or target_node not in graph_obj.graph:
-    return None
-    if start_node == target_node:
-        return [start_node]
-
-    queue = deque([[start_node]])
-    visited = {start_node}
-
-    while queue:
-        path = queue.popleft()
-        node = path[-1]
-
-        for neighbor in graph_obj.graph[node]:
-            if neighbor not in visited:
-                new_path = list(path)
-                new_path.append(neighbor)
-                queue.append(new_path)
-                visited.add(neighbor)
-
-                if neighbor == target_node:
-                    return new_path
-    return None
-
+import math
+import random
 
 def bfs_traversal(graph_obj, start_node):
     visited = []
@@ -37,8 +14,25 @@ def bfs_traversal(graph_obj, start_node):
                 visited_set.add(neighbor)
                 queue.append(neighbor)
     return visited
-    
-    
+
+def bfs_shortest_path(graph_obj, start_node, target_node):
+    if start_node == target_node:
+        return [start_node]
+    queue = deque([[start_node]])
+    visited = {start_node}
+    while queue:
+        path = queue.popleft()
+        node = path[-1]
+        for neighbor in graph_obj.graph.get(node, []):
+            if neighbor not in visited:
+                new_path = list(path)
+                new_path.append(neighbor)
+                queue.append(new_path)
+                visited.add(neighbor)
+                if neighbor == target_node:
+                    return new_path
+    return None
+
 def dfs_traversal(graph_obj, start_node):
     visited = []
     visited_set = {start_node}
@@ -52,10 +46,7 @@ def dfs_traversal(graph_obj, start_node):
                 stack.append(neighbor)
     return visited
 
-
 def dijkstra_shortest_path(graph_obj, start_node, target_node):
-    if start_node not in graph_obj.nodes or target_node not in graph_obj.nodes:
-    return None
     distances = {node: math.inf for node in graph_obj.nodes}
     distances[start_node] = 0
     previous = {node: None for node in graph_obj.nodes}
@@ -73,10 +64,9 @@ def dijkstra_shortest_path(graph_obj, start_node, target_node):
                     previous[neighbor] = current
     path = []
     curr = target_node
-    
     if previous[curr] is not None or curr == start_node:
         while curr is not None:
             path.insert(0, curr)
             curr = previous[curr]
         return path
-return None
+    return None
