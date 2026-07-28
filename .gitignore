@@ -1,6 +1,59 @@
+# Python cache and compiled files
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+*.so
+*.dll
+
+# Virtual envs and dependency management
 .env
 venv/
 .venv/
+pip-log.txt
+pip-log-*.txt
+requirements.txt.bak
+environment.yml
+conda-meta/
+.Python
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.swp
+*.bak
+*.swo
+
+# Operating System files
 .DS_Store
+Thumbs.db
+
+# Test / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+test_*.xml
+nosetests.xml
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+.nox/
+
+# Notebooks and data processing
+.ipynb_checkpoints/
+data/*.sqlite
+data/*.db
+data/*.csv.tmp
+
+# Log files
+*.log
+*.tmp
+
+# Matplotlib cache
+matplotlib/fontlist-v*.json
+
+# Generated Outputs (Crucial for your current project)
+benchmarks/
