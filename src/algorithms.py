@@ -1,6 +1,5 @@
 from collections import deque
 import math
-import random
 
 def bfs_traversal(graph_obj, start_node):
     visited = []
@@ -47,6 +46,8 @@ def dfs_traversal(graph_obj, start_node):
     return visited
 
 def dijkstra_shortest_path(graph_obj, start_node, target_node):
+    if start_node not in graph_obj.nodes or target_node not in graph_obj.nodes:
+        return None
     distances = {node: math.inf for node in graph_obj.nodes}
     distances[start_node] = 0
     previous = {node: None for node in graph_obj.nodes}
