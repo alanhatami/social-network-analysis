@@ -11,7 +11,7 @@ class SocialGraph:
             self.nodes.add(node)
             if node not in self.graph:
                 self.graph[node] = []
-    
+
     def add_edge(self, u, v):
         if v not in self.graph[u]:
             self.graph[u].append(v)
@@ -26,8 +26,11 @@ class SocialGraph:
                 reader = csv.reader(f)
                 next(reader)
                 for row in reader:
-                    u, v = int(row[0]), int(row[1])
-                    self.add_edge(u, v)
+                    try:
+                        u, v = int(row[0]), int(row[1])
+                        self.add_edge(u, v)
+                    except ValueError:
+                        continue
             print(f"Successfully loaded {len(self.nodes)} nodes.")
         except FileNotFoundError:
             print("Error: CSV file not found!")
