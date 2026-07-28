@@ -39,3 +39,25 @@ def bfs_shortest_path(graph_obj, start_node, target_node):
          
                 queue.append(neighbor)
          return visited
+
+
+
+         def bfs_shortest_path(graph_obj, start_node, target_node):
+    if start_node == target_node:
+          return [start_node]
+      queue = deque([[start_node]])
+             visited = {start_node}
+    while queue:
+        path = queue.popleft()
+        node = path[-1]
+      
+      
+        for neighbor in graph_obj.graph.get(node, []):
+            if neighbor not in visited:
+                  new_path = list(path)
+                     new_path.append(neighbor)
+                queue.append(new_path)
+                   visited.add(neighbor)
+                  if neighbor == target_node:
+                       return new_path
+                          return None
