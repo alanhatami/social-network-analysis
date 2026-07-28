@@ -18,3 +18,12 @@ def main():
     save_graph_image(sg)
     plot_degree_distribution(sg)
     detect_communities(sg)
+
+    avg_c, rand_c = analyze_small_world(sg)
+    print(f"Clustering: {avg_c:.4f}, Random: {rand_c:.4f}")
+    
+    predictions = predict_future_links(sg)
+    print(f"Top Predictions: {predictions}")
+
+if __name__ == "__main__":
+    main()
