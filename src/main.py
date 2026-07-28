@@ -13,3 +13,8 @@ def main():
     
     nodes = sorted(list(sg.nodes))
     if len(nodes) < 2: return
+
+    print("Running Analytics...")
+    save_graph_image(sg)
+    plot_degree_distribution(sg)
+    detect_communities(sg)
