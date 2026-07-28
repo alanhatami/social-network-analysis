@@ -31,7 +31,7 @@ class SocialGraph:
                         self.add_edge(u, v)
                     except ValueError:
                         continue
-            print(f"Successfully loaded {len(self.nodes)} nodes.")
+            return True
         except FileNotFoundError:
-            print("Error: CSV file not found!")
+            return False
 
