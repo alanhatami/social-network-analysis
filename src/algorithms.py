@@ -61,3 +61,22 @@ def bfs_shortest_path(graph_obj, start_node, target_node):
                   if neighbor == target_node:
                        return new_path
                           return None
+
+
+
+
+
+
+
+          def dfs_traversal(graph_obj, start_node):
+        visited = []
+    visited_set = {start_node}
+    stack = [start_node]
+    while stack:
+        node = stack.pop()
+        visited.append(node)
+        for neighbor in reversed(graph_obj.graph.get(node, [])):
+            if neighbor not in visited_set:
+                visited_set.add(neighbor)
+                stack.append(neighbor)
+    return visited
