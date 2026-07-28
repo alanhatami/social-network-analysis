@@ -6,6 +6,12 @@ class SocialGraph:
         self.graph = collections.defaultdict(list)
         self.nodes = set()
 
+    def add_node(self, node):
+        if node not in self.nodes:
+            self.nodes.add(node)
+            if node not in self.graph:
+                self.graph[node] = []
+    
     def add_edge(self, u, v):
         if v not in self.graph[u]:
             self.graph[u].append(v)
