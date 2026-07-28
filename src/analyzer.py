@@ -55,3 +55,14 @@ def detect_communities(graph_manager_obj, filename="benchmarks/communities.png")
     plt.savefig(filename, dpi=150)
     plt.close()
     return len(communities)
+
+def predict_future_links(graph_manager_obj):
+    G = nx.Graph()
+    for node, neighbors in graph_manager_obj.graph.items():
+        for neighbor in neighbors:
+            G.add_edge(node, neighbor)
+    non_edges = list(nx.non_edges(G))
+    if not non_edges: return []
+    sampled = random.sample(non_edges, min(len(non_edges), 500))
+    preds = list(nx.jaccard_coefficient(G, sampled))
+    return sorted(preds, key=lambda x: x[2], reverse=True)[:5]
