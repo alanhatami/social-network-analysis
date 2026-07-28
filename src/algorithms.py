@@ -80,3 +80,36 @@ def bfs_shortest_path(graph_obj, start_node, target_node):
                 visited_set.add(neighbor)
                 stack.append(neighbor)
     return visited
+
+
+    def dijkstra_shortest_path(graph_obj, start_node, target_node):
+   
+    distances = {node: math.inf for node in graph_obj.nodes}
+   
+    distances[start_node] = 0
+   
+    previous = {node: None for node in graph_obj.nodes}
+    unvisited = set(graph_obj.nodes)
+    while unvisited:
+        current = min(unvisited, key=lambda node: distances[node])
+     
+        if distances[current] == math.inf or current == target_node:
+            break
+        unvisited.remove(current)
+     
+        for neighbor in graph_obj.graph.get(current, []):
+            if neighbor in unvisited:
+     
+                alt = distances[current] + 1
+                if alt < distances[neighbor]:
+                    distances[neighbor] = alt
+                    previous[neighbor] = current
+    path = []
+    curr = target_node
+    
+    if previous[curr] is not None or curr == start_node:
+        while curr is not None:
+            path.insert(0, curr)
+            curr = previous[curr]
+        return path
+    return None
