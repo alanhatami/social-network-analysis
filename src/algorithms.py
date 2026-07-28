@@ -1,6 +1,8 @@
 from collections import deque
 
 def bfs_shortest_path(graph_obj, start_node, target_node):
+    if start_node not in graph_obj.graph or target_node not in graph_obj.graph:
+    return None
     if start_node == target_node:
         return [start_node]
 
@@ -83,6 +85,8 @@ def bfs_shortest_path(graph_obj, start_node, target_node):
 
 
     def dijkstra_shortest_path(graph_obj, start_node, target_node):
+    if start_node not in graph_obj.nodes or target_node not in graph_obj.nodes:
+    return None
    
     distances = {node: math.inf for node in graph_obj.nodes}
    
