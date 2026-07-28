@@ -210,13 +210,26 @@ python src/main.py
 ## تصاویر خروجی
 
 ### توزیع درجه
-![Degree Distribution](docs/assets/degree_distribution.png)
+<p align="center">
+  <img src="docs/assets/degree_distribution.png" alt="Degree Distribution" width="50%" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.15); border: 1px solid #e1e4e8; max-width: 650px;">
+  <br>
+  <em>شکل ۱: توزیع درجه گره‌ها در شبکه اجتماعی فیس‌بوک</em>
+</p>
 
 ### نمایش نمونه‌ای از شبکه
-![Network Plot](docs/assets/network_plot.png)
+<p align="center">
+  <img src="docs/assets/network_plot.png" alt="Network Plot" width="50%" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.15); border: 1px solid #e1e4e8; max-width: 550px;">
+  <br>
+  <em>شکل ۲: زیرنمودار نمونه استخراج‌شده جهت بصری‌سازی ساختار شبکه</em>
+</p>
 
 ### تشخیص جوامع
-![Communities](docs/assets/communities.png)
+<p align="center">
+  <img src="docs/assets/communities.png" alt="Communities" width="50%" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.15); border: 1px solid #e1e4e8; max-width: 550px;">
+  <br>
+  <em>شکل ۳: خوشه‌بندی و شناسایی جوامع درون شبکه با الگوریتم لووین</em>
+</p>
+
 
 ---
 
