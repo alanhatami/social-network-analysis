@@ -23,3 +23,10 @@ def save_graph_image(graph_manager_obj, filename="benchmarks/network_plot.png"):
     nx.draw_networkx_edges(G, pos, alpha=0.3)
     plt.savefig(filename, dpi=150)
     plt.close()
+
+def plot_degree_distribution(graph_manager_obj, filename="benchmarks/degree_distribution.png"):
+    degrees = [len(neighbors) for neighbors in graph_manager_obj.graph.values()]
+    plt.figure(figsize=(8, 5))
+    plt.hist(degrees, bins=20, color='teal')
+    plt.savefig(filename)
+    plt.close()
