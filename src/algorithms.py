@@ -21,3 +21,21 @@ def bfs_shortest_path(graph_obj, start_node, target_node):
                 if neighbor == target_node:
                     return new_path
     return None
+
+    def bfs_traversal(graph_obj, start_node):
+    visited = []
+     
+        visited_set = {start_node}
+    queue = deque([start_node])
+        while queue:
+          
+           node = queue.popleft()
+        
+        visited.append(node)
+        
+        for neighbor in graph_obj.graph.get(node, []):
+                      if neighbor not in visited_set:
+                visited_set.add(neighbor)
+         
+                queue.append(neighbor)
+         return visited
