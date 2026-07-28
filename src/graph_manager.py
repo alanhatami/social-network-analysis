@@ -6,22 +6,31 @@ class SocialGraph:
         self.graph = collections.defaultdict(list)
         self.nodes = set()
 
+    def add_node(self, node):
+        if node not in self.nodes:
+            self.nodes.add(node)
+            if node not in self.graph:
+                self.graph[node] = []
+
     def add_edge(self, u, v):
+        self.add_node(u)
+        self.add_node(v)
         if v not in self.graph[u]:
             self.graph[u].append(v)
         if u not in self.graph[v]:
             self.graph[v].append(u)
-        self.nodes.add(u)
-        self.nodes.add(v)
 
     def load_from_csv(self, file_path):
         try:
-            with open(file_path, 'r') as f:
+            with open(file_path, 'r', encoding='utf-8') as f:
                 reader = csv.reader(f)
-                next(reader)
+                next(reader, None)
                 for row in reader:
-                    u, v = int(row[0]), int(row[1])
-                    self.add_edge(u, v)
-            print(f"Successfully loaded {len(self.nodes)} nodes.")
+                    if len(row) >= 2:
+                        try:
+                            self.add_edge(int(row[0]), int(row[1]))
+                        except ValueError:
+                            continue
+            return True
         except FileNotFoundError:
-            print("Error: CSV file not found!")
+            return False
